@@ -50,7 +50,7 @@ export default function SignInPage() {
       });
 
       if (!parsedCredentials.success) {
-        setErrorMsg('Некоректний email або пароль');
+        setErrorMsg('Invalid email or password');
         return;
       }
 
@@ -58,7 +58,7 @@ export default function SignInPage() {
       router.push('/');
       router.refresh();
     } catch (error: unknown) {
-      setErrorMsg('Помилка при вході. Будь ласка, спробуйте ще раз.');
+      setErrorMsg('Error signing in. Please try again.');
       console.error('Sign-in error:', error);
     } finally {
       setIsPending(false);
@@ -69,9 +69,9 @@ export default function SignInPage() {
     <div className="flex min-h-screen items-center justify-center">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-2xl">Вхід</CardTitle>
+          <CardTitle className="text-2xl">Sign In</CardTitle>
           <CardDescription>
-            Введіть ваші дані для доступу до обліку
+            Enter your details to access the dashboard
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -117,7 +117,7 @@ export default function SignInPage() {
                 </div>
               )}
               <Button type="submit" className="w-full" disabled={isPending}>
-                {isPending ? 'Вхід...' : 'Вхід'}
+                {isPending ? 'Signing in...' : 'Sing in'}
               </Button>
             </form>
           </Form>
